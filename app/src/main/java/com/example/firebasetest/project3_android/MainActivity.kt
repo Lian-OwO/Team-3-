@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                         transaction.replace(R.id.tabContent, NoticeFragment())
                         binding.header.visibility = View.VISIBLE
                     }
-                    "마이" -> {
+                    "Ai" -> {
                         transaction.replace(R.id.tabContent, MypageFragment())
                         binding.header.visibility = View.VISIBLE
                     }
@@ -87,14 +87,18 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val categoryItems = listOf(
-            CategoryItem(R.drawable.category, "선상낚시"),
-            CategoryItem(R.drawable.category, "좌대낚시"),
-            CategoryItem(R.drawable.category, "갯바위낚시"),
-            CategoryItem(R.drawable.category, "방파제낚시"),
-            CategoryItem(R.drawable.category, "양어장"),
-            CategoryItem(R.drawable.category, "연안좌대"),
-            CategoryItem(R.drawable.category, "수상좌대"),
-            CategoryItem(R.drawable.category, "민물포인트"),
+            CategoryItem(R.drawable.category, "서천 갯벌"),
+            CategoryItem(R.drawable.category, "고창 갯벌"),
+            CategoryItem(R.drawable.category, "신안 갯벌"),
+            CategoryItem(R.drawable.category, "보성-순천 갯벌"),
+//            CategoryItem(R.drawable.category, "선상낚시"),
+//            CategoryItem(R.drawable.category, "좌대낚시"),
+//            CategoryItem(R.drawable.category, "갯바위낚시"),
+//            CategoryItem(R.drawable.category, "방파제낚시"),
+//            CategoryItem(R.drawable.category, "양어장"),
+//            CategoryItem(R.drawable.category, "연안좌대"),
+//            CategoryItem(R.drawable.category, "수상좌대"),
+//            CategoryItem(R.drawable.category, "민물포인트"),
         )
 
         val categoryAdapter = CategoryAdapter(categoryItems)
