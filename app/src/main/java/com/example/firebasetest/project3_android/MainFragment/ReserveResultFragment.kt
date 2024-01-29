@@ -6,15 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.firebasetest.project3_android.R
-import com.example.firebasetest.project3_android.databinding.FragmentMypageBinding
+import com.example.firebasetest.project3_android.databinding.FragmentReserveResultBinding
 
-class MypageFragment : Fragment() {
-
-    private lateinit var binding: FragmentMypageBinding
+class ReserveResultFragment : Fragment() {
+    private lateinit var fragmentReserveResultBinding: FragmentReserveResultBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = FragmentMypageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        fragmentReserveResultBinding = FragmentReserveResultBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -22,7 +21,7 @@ class MypageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mypage, container, false)
+        return inflater.inflate(R.layout.fragment_reserve_result, container, false)
     }
 
 

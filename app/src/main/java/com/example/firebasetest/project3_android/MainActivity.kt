@@ -2,8 +2,6 @@ package com.example.firebasetest.project3_android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,23 +9,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.firebasetest.project3_android.Adapter.CategoryAdapter
 import com.example.firebasetest.project3_android.MainFragment.HomeFragment
 import com.example.firebasetest.project3_android.MainFragment.MapFragment
-import com.example.firebasetest.project3_android.MainFragment.MypageFragment
+import com.example.firebasetest.project3_android.MainFragment.MudAiFragment
 import com.example.firebasetest.project3_android.MainFragment.NoticeFragment
-import com.example.firebasetest.project3_android.MainFragment.ReserveFragment
+import com.example.firebasetest.project3_android.MainFragment.ReserveResultFragment
 import com.example.firebasetest.project3_android.Model.CategoryItem
 import com.example.firebasetest.project3_android.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var activityMainBindingbinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val tabLayout = binding.tabs
-        setContentView(binding.root)
+        activityMainBindingbinding = ActivityMainBinding.inflate(layoutInflater)
+        val tabLayout = activityMainBindingbinding.tabs
+        setContentView(activityMainBindingbinding.root)
 
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(activityMainBindingbinding.toolbar)
 
         // HomeFragment를 초기 화면으로 설정
         val homeFragment = HomeFragment()
@@ -41,23 +39,23 @@ class MainActivity : AppCompatActivity() {
                 when (tab?.text) {
                     "홈" -> {
                         transaction.replace(R.id.tabContent, HomeFragment())
-                        binding.header.visibility = View.VISIBLE
+                        activityMainBindingbinding.header.visibility = View.VISIBLE
                     }
                     "예약" -> {
-                        transaction.replace(R.id.tabContent, ReserveFragment())
-                        binding.header.visibility = View.VISIBLE
+                        transaction.replace(R.id.tabContent, ReserveResultFragment())
+                        activityMainBindingbinding.header.visibility = View.VISIBLE
                     }
                     "맵" -> {
                         transaction.replace(R.id.tabContent, MapFragment())
-                        binding.header.visibility = View.VISIBLE
+                        activityMainBindingbinding.header.visibility = View.VISIBLE
                     }
                     "공지" -> {
                         transaction.replace(R.id.tabContent, NoticeFragment())
-                        binding.header.visibility = View.VISIBLE
+                        activityMainBindingbinding.header.visibility = View.VISIBLE
                     }
                     "Ai" -> {
-                        transaction.replace(R.id.tabContent, MypageFragment())
-                        binding.header.visibility = View.VISIBLE
+                        transaction.replace(R.id.tabContent, MudAiFragment())
+                        activityMainBindingbinding.header.visibility = View.VISIBLE
                     }
                 }
                 transaction.commit()
@@ -82,7 +80,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeRecyclerView() {
-        val categoryRecyclerView: RecyclerView = binding.categoryRecyclerView
+        val categoryRecyclerView: RecyclerView = activityMainBindingbinding.categoryRecyclerView
         categoryRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
