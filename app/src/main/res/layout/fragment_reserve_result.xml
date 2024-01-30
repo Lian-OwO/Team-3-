@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment.NoticeFragment">
+    tools:context=".MainFragment.ReserveResultFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,48 +20,56 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/black"
+                    android:text="체크인 완료!   |   예약번호 231111EJFLDJDYDU"
+                    android:textColor="@color/white"
+                    tools:layout_editor_absoluteX="5dp"
+                    tools:layout_editor_absoluteY="665dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text=":: 공지사항 ::"
+                    android:text=":: 블랙이글스호 ::"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
-                <View
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#ccc"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginEnd="8dp"
-                    />
+                    android:text="호스트: Golwen님  \n최소인원 8명, 최대인원 20명, 전용 욕실, 주차 가능"
+                    android:textColor="#ccc"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="8dp"
-                    android:text="[긴급 공지] 2024년 2월 26일 서버 점검 안내"
+                    android:text="체크인 23.11.26(일) 오후 3:00 ~ 오전 12:00    \n체크아웃 23.12.1(금) 오전 11:00전까지   \n\n★예약 정보★   \n\n타입 A-03 (2인 기준 최대 3인/유료)"
                     android:textColor="#ff0000"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="2023.01.18 (목)    >"
+                    android:text="인원 추가 시 비용이 발생되며 현장에서 결제 바랍니다"
                     android:textColor="#ccc"
                     android:textSize="15sp"
                     android:textStyle="normal" />
@@ -76,28 +84,16 @@
                     android:layout_marginEnd="8dp"
                     />
 
+                <!-- @@@@예약 정보 끝 -->
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="[안내] 2024년 설날 고객센터 휴무 안내"
+                    android:text="예  약  자     |     김다영   \n연  락  처     |     0504-4043-5545"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="2023.01.18 (목)    >"
-                    android:textColor="#ccc"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
+                    android:textSize="15sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -109,25 +105,23 @@
                     android:layout_marginEnd="8dp"
                     />
 
+                <!-- @@@@예약자 끝 -->
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="[이벤트] 낚시왕! 크루 콜라보 이벤트 당첨자 발표"
+                    android:text="편의 시설"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="2023.01.18 (목)    >"
+                    android:text="화장실, 구명조끼, 구명밧줄, 난방, 소화기, 커피포트, CCTV 등등"
                     android:textColor="#ccc"
                     android:textSize="15sp"
                     android:textStyle="normal" />
@@ -142,28 +136,57 @@
                     android:layout_marginEnd="8dp"
                     />
 
+                <!-- @@@@편의시설 끝 -->
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="[안내] 2024년 설날 고객센터 휴무 안내"
+                    android:text="결제 정보"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="2023.01.18 (목)    >"
+                    android:text="결제 일시 2024.02.06(화) 14:34"
                     android:textColor="#ccc"
                     android:textSize="15sp"
                     android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"
+                        android:text="상품 가격 (박)   \n결제 시 포인트 사용   \n결제 시 쿠폰 사용   \n\n실 결제 금액   \n결제 수단" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:gravity="right"
+                        android:text="\230,000원   \n-100,000 P   \n-50,000원   \n\n80,000원   \n신용/체크카드" />
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -175,43 +198,71 @@
                     android:layout_marginEnd="8dp"
                     />
 
+                <!-- @@@@결제정보 끝 -->
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="[이벤트] 낚시왕! 크루 콜라보 이벤트 당첨자 발표"
+                    android:text="태안 블랙이글스호 정책  >     \n"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="100dp"
                     android:layout_marginEnd="8dp"
-                    android:text="2023.01.18 (목)    >"
+                    android:text="(주)머드팟컴퍼니는 통신판매중계자로서 통신판매의 당사자가 아니며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 호스트에게 있습니다."
                     android:textColor="#ccc"
                     android:textSize="15sp"
                     android:textStyle="normal" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#ccc"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginEnd="8dp"
-                    />
 
             </LinearLayout>
 
         </ScrollView>
         <!-- 스크롤 뷰 끝 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-50dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_marginBottom="70dp"
+            >
+
+            <Button
+                android:id="@+id/buttonReserveReturn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onRegisterClick"
+                android:text="숙소 문의" />
+
+            <Button
+                android:id="@+id/buttonReserveMap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRegisterClick"
+                android:backgroundTint="#ccc"
+                android:text="지도 보기" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRegisterClick"
+                android:backgroundTint="#ff0000"
+                android:text="예약 취소"
+                android:textColor="#fff"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 

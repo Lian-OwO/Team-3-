@@ -9,8 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         >
 
         <ScrollView
@@ -28,11 +26,16 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="400dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/reserve_visual" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="8dp"
                         android:text="시즌오프, 조용하고 편리한 주차공간"
                         android:textColor="@color/black"
@@ -44,7 +47,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="8dp"
-                        android:text="★ 4.2 | 게스트 선호 | 후기 2024  \n전용 좌대, 주차 가능   \n11월 26일 ~ 12월 1일"
+                        android:text="★ 4.2 | 게스트 선호 | 후기 2024  \n탑승인원 최소 5명 ~ 최대 21명   \n11월 26일 ~ 12월 1일"
                         android:textColor="#ccc"
                         android:textSize="15sp"
                         android:textStyle="normal" />
@@ -55,7 +58,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:text="151,000 / 갯벌 생물"
-                        android:textColor="@color/black"
+                        android:textColor="#ff0000"
                         android:textSize="15sp"
                         android:textStyle="normal" />
 
@@ -120,7 +123,51 @@
 
                 </LinearLayout>
 
-                <!-- @@@@호스트 소개 끝 -->
+<!-- @@@@호스트 소개 끝 -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="당진 고객만족 1위 좌대! 믿고 예약하세요
+                        \n밑걸림 없는 좌대 낚시
+                        \n친절한 사장님의 무료 낚시 강습
+                        \n초보자를 위한 최고의 서비스한
+                        \n개인, 단체, 가족 출조 문의
+                        \n24시간 항시 전화대기 중
+                        \n자연피싱 출조점 운영 중
+                        \n선박5대 보유 중
+                        \n
+                        \n!!이동거리와 어종상황에 따라 유동적으로 변경될 수 있습니다!!"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="더보기 >"
+                    android:textColor="#ccc"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#ccc"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="8dp"
+                    />
+
+<!-- @@@@소개글 끝 -->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -187,7 +234,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="40dp"
                             android:layout_marginEnd="8dp"
-                            android:text="셀프 체크인"
+                            android:text="중량(톤수) 9.77톤(t)"
                             android:textColor="@color/black"
                             android:textSize="15sp"
                             android:textStyle="normal" />
@@ -197,7 +244,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="8dp"
-                            android:text="키패드를 이용해 체크인하세요."
+                            android:text="최신식 선박! 사전에 알려드린 패스워드로 키패드를 이용해 체크인하세요."
                             android:textColor="#ccc"
                             android:textSize="15sp"
                             android:textStyle="normal" />
@@ -248,28 +295,26 @@
                     android:layout_marginEnd="8dp"
                     />
 
-                <!-- @@@@공지 아이콘 끝 -->
+<!-- @@@@공지 아이콘 끝 -->
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="안녕하세요. 자연피싱호(@studio_fising)입니다. 방수용품은 제공되지 않습니다. 촬영 목적으로 이용하는 게스트 분들을 위해 낚시방 컨셉의 장난감 물고기 인형, 쿠션을 제공해드리고 있습니다."
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="더보기 >"
-                    android:textColor="#ccc"
+                    android:text="좌대정보 이용시간
+                    \n- 문   어 : 6시 출발 ((1시간 이동))
+                    \n- 주꾸미 : 5시 출발 ((1시간 이동))
+                    \n- 외수질 다잡아(새우포함) : 6시 출발 ((30분 이동))
+                    \n- 우럭/광어/노래미(생미끼) : 6시 출발 ((30분 이동))
+                    \n- 우럭/광어/농어 외수질 : 5시 출발 ((1시간30분 이동))
+                    \n- 우럭(40호추/베이트릴) : 6시 출발
+                    \n- 우럭/열기(100호추/전동릴) : 6시 출발 ((30분 이동))
+                    \n- 우럭 먼바다(100호추/전동릴) : 6시 출발
+                    \n- 우럭(해맞이 떡국출조) : 6시 출발 ((30분 이동))"
+                    android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="normal" />
 
@@ -283,7 +328,7 @@
                     android:layout_marginEnd="8dp"
                     />
 
-                <!-- @@@@소개글 끝 -->
+<!-- @@@@이용규칙 끝 -->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -291,7 +336,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="편의시설"
+                    android:text="보유장비"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="normal" />
@@ -314,7 +359,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
                         android:layout_marginEnd="8dp"
-                        android:text="드넓은 언더더씨라인 전망"
+                        android:text="쿨러 | 전동릴 전원공급"
                         android:textColor="@color/black"
                         android:textSize="15sp"
                         android:textStyle="normal" />
@@ -338,7 +383,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:layout_marginEnd="8dp"
-                        android:text="무선 인터넷"
+                        android:text="쏘나 | 어군탐지기 | 플로터"
                         android:textColor="@color/black"
                         android:textSize="15sp"
                         android:textStyle="normal" />
@@ -362,7 +407,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:layout_marginEnd="8dp"
-                        android:text="주차장 (익일 체크아웃 시간까지 무료)"
+                        android:text="레이더 | 무전기 | 자동항법장치"
                         android:textColor="@color/black"
                         android:textSize="15sp"
                         android:textStyle="normal" />
@@ -376,7 +421,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="편의시설 48개 모두 보기 >"
+                    android:text="보유장비 48개 모두 보기 >"
                     android:textColor="#ccc"
                     android:textSize="15sp"
                     android:textStyle="normal" />
@@ -391,7 +436,7 @@
                     android:layout_marginEnd="8dp"
                     />
 
-                <!-- @@@@편의시설 끝 -->
+<!-- @@@@편의시설 끝 -->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -423,7 +468,7 @@
                     android:layout_marginEnd="8dp"
                     />
 
-                <!-- @@@@호스팅 지역 끝 -->
+<!-- @@@@호스팅 지역 끝 -->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -432,7 +477,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="8dp"
-                    android:text="이용규칙   \n체크인 시간 : 오후 3:00 ~ 오전 12:00   \n체크아웃 시간 : 오전 11:00전까지   \n게스트 정원 : 최대 4명   \n반려동물 : 동반 불가   \n흡연 금지"
+                    android:text="안전 및 기타 사항
+                        \n화장실, 구명조끼, 구명밧줄, 난방, 소화기, 커피포트, CCTV"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="normal" />
@@ -447,31 +493,7 @@
                     android:layout_marginEnd="8dp"
                     />
 
-                <!-- @@@@이용규칙 끝 -->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="안전 및 기타 사항   \n- 일산화탄소 경보기   \n- 화재 경보기   \n-계단을 올라야함"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#ccc"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginEnd="8dp"
-                    />
-
-                <!-- @@@@안전 및 기타 사항 끝 -->
+<!-- @@@@안전 및 기타 사항 끝 -->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -496,7 +518,7 @@
                     android:textSize="15sp"
                     android:textStyle="italic" />
 
-                <!-- @@@@신고하기 끝 -->
+<!-- @@@@신고하기 끝 -->
 
             </LinearLayout>
 

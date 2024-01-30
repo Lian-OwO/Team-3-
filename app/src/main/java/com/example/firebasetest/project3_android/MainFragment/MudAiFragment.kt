@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.firebasetest.project3_android.R
-import com.example.firebasetest.project3_android.databinding.FragmentNoticeBinding
+import com.example.firebasetest.project3_android.databinding.FragmentMudAiBinding
 
-class NoticeFragment : Fragment() {
-    private lateinit var fragmentNoticeBinding: FragmentNoticeBinding
+class MudAiFragment : Fragment() {
+    private lateinit var fragmentMudAiBinding: FragmentMudAiBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fragmentNoticeBinding = FragmentNoticeBinding.inflate(layoutInflater)
+        fragmentMudAiBinding = FragmentMudAiBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class NoticeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notice, container, false)
+        return inflater.inflate(R.layout.fragment_mud_ai, container, false)
     }
 
 
