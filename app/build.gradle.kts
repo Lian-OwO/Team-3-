@@ -32,31 +32,38 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    aaptOptions {
+        noCompress("tflite")
+    }
+
+    dependencies {
+        // Tensorflow Lite dependencies
+//        implementation ("org.tensorflow:tensorflow-lite-task-vision:0.3.0")
+//        implementation ("org.tensorflow:tensorflow-lite-task-text:0.3.0")
+//        implementation ("org.tensorflow:tensorflow-lite-task-audio:0.3.0")
+        implementation("org.tensorflow:tensorflow-lite:+")
+        implementation ("org.tensorflow:tensorflow-lite-task-vision:0.3.1")
+        implementation("androidx.core:core-ktx:1.9.0")
+        implementation("androidx.appcompat:appcompat:1.6.1")
+        implementation("com.google.android.material:material:1.10.0")
+        implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+        testImplementation("junit:junit:4.13.2")
+        androidTestImplementation("androidx.test.ext:junit:1.1.5")
+        androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    }
 }
-
 dependencies {
-
-    implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
-//    // 네이버 맵, 카드뷰
-//    // gps
-//    implementation ("com.google.android.gms:play-services-location:21.0.1")
-//    implementation ("com.naver.maps:map-sdk:3.17.0")
-//    implementation ("com.google.android.gms:play-services-location:20.0.0")
-//
-//    // 카드뷰
-//    implementation ("androidx.cardview:cardview:1.0.0")
 }

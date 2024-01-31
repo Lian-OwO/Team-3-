@@ -33,13 +33,33 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
+                <!-- MudAiFragment.xml -->
+
                 <ImageView
                     android:id="@+id/imageViewHost"
                     android:layout_width="wrap_content"
                     android:layout_height="300dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:src="@drawable/aiimg" />
+                    android:scaleType="centerInside" />
+
+                <Button
+                    android:id="@+id/uploadImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Image" />
+
+                <!-- MudAiFragment.xml -->
+
+                <TextView
+                    android:id="@+id/resultTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="분석 결과: " />
+
+
+
 
                 <TextView
                     android:layout_width="wrap_content"
