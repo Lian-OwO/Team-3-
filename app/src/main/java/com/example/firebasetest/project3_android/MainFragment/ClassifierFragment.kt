@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,11 +18,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.firebasetest.project3_android.R
-
-
-class MudAiFragment : Fragment() {
-
-
     class ClassifierFragment : Fragment() {
 
         private lateinit var imageView: ImageView
@@ -43,17 +39,20 @@ class MudAiFragment : Fragment() {
             classifier = Classifier(requireContext().assets)
 
             buttonSelectImage.setOnClickListener {
+                Log.d("버튼", "클릭됨")
                 if (ContextCompat.checkSelfPermission(
                         requireContext(),
                         android.Manifest.permission.READ_EXTERNAL_STORAGE
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
+                    Log.d("버튼", "조건문 실행")
                     ActivityCompat.requestPermissions(
                         requireActivity(),
                         arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
                         readExternalStoragePermission
                     )
                 } else {
+                    Log.d("버튼", "else 문 실행")
                     selectImageFromGallery()
                 }
             }
@@ -94,4 +93,3 @@ class MudAiFragment : Fragment() {
             textViewResult.text = results.joinToString(separator = "\n") { "Class: ${it.first}, Confidence: ${it.second}" }
         }
     }
-}

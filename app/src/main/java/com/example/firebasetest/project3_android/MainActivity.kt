@@ -7,9 +7,9 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firebasetest.project3_android.Adapter.CategoryAdapter
+import com.example.firebasetest.project3_android.MainFragment.ClassifierFragment
 import com.example.firebasetest.project3_android.MainFragment.HomeFragment
 import com.example.firebasetest.project3_android.MainFragment.MapFragment
-import com.example.firebasetest.project3_android.MainFragment.MudAiFragment
 import com.example.firebasetest.project3_android.MainFragment.NoticeFragment
 import com.example.firebasetest.project3_android.MainFragment.ReserveResultFragment
 import com.example.firebasetest.project3_android.Model.CategoryItem
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                         activityMainBindingbinding.header.visibility = View.VISIBLE
                     }
                     "Ai" -> {
-                        transaction.replace(R.id.tabContent, MudAiFragment())
+                        transaction.replace(R.id.tabContent, ClassifierFragment())
                         activityMainBindingbinding.header.visibility = View.VISIBLE
                     }
                 }

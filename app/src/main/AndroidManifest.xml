@@ -13,12 +13,6 @@
         android:theme="@style/Theme.Project3android"
         tools:targetApi="31">
         <activity
-            android:name=".TensorFlowLiteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TensorFlowActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
