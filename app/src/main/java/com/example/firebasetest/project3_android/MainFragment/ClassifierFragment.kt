@@ -1,95 +1,76 @@
 package com.example.firebasetest.project3_android.MainFragment
 
 import Classifier
-import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.app.ActivityCompat
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.firebasetest.project3_android.R
-    class ClassifierFragment : Fragment() {
+import java.io.InputStream
 
-        private lateinit var imageView: ImageView
-        private lateinit var textViewResult: TextView
-        private lateinit var buttonSelectImage: Button
-        private lateinit var classifier: Classifier
+class ClassifierFragment : Fragment() {
 
-        private val requestImageCapture = 1
-        private val readExternalStoragePermission = 101
+    private lateinit var imageView: ImageView
+    private lateinit var textViewResult: TextView
+    private lateinit var selectImageLauncher: ActivityResultLauncher<String>
+    private lateinit var classifier: Classifier
 
-        override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-        ): View? {
-            val view = inflater.inflate(R.layout.fragment_classifier, container, false)
-            imageView = view.findViewById(R.id.imageView)
-            textViewResult = view.findViewById(R.id.textViewResult)
-            buttonSelectImage = view.findViewById(R.id.buttonSelectImage)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-            classifier = Classifier(requireContext().assets)
+        classifier = Classifier(requireActivity().assets)
 
-            buttonSelectImage.setOnClickListener {
-                Log.d("버튼", "클릭됨")
-                if (ContextCompat.checkSelfPermission(
-                        requireContext(),
-                        android.Manifest.permission.READ_EXTERNAL_STORAGE
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    Log.d("버튼", "조건문 실행")
-                    ActivityCompat.requestPermissions(
-                        requireActivity(),
-                        arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
-                        readExternalStoragePermission
-                    )
-                } else {
-                    Log.d("버튼", "else 문 실행")
-                    selectImageFromGallery()
-                }
+        // 이미지 선택 결과를 처리하기 위한 ActivityResultLauncher 초기화
+        selectImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            // 사용자가 이미지를 선택하면 이곳에서 URI 처리
+            uri?.let {
+                val bitmap = uriToBitmap(uri)
+                imageView.setImageBitmap(bitmap)
+                classifyImage(bitmap)
             }
-
-            return view
-        }
-
-        private fun selectImageFromGallery() {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, requestImageCapture)
-        }
-
-        override fun onRequestPermissionsResult(
-            requestCode: Int, permissions: Array<String>, grantResults: IntArray
-        ) {
-            when (requestCode) {
-                readExternalStoragePermission -> {
-                    if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                        selectImageFromGallery()
-                    }
-                    return
-                }
-            }
-        }
-
-        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-            if (requestCode == requestImageCapture && resultCode == Activity.RESULT_OK) {
-                data?.data?.let { uri ->
-                    val bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, uri)
-                    imageView.setImageBitmap(bitmap)
-                    classifyImage(bitmap)
-                }
-            }
-        }
-
-        private fun classifyImage(bitmap: Bitmap) {
-            val results = classifier.classifyImage(bitmap)
-            textViewResult.text = results.joinToString(separator = "\n") { "Class: ${it.first}, Confidence: ${it.second}" }
         }
     }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        // Fragment의 레이아웃 설정
+        val view = inflater.inflate(R.layout.fragment_classifier, container, false)
+        imageView = view.findViewById(R.id.imageView)
+        textViewResult = view.findViewById(R.id.textViewResult)
+
+        val buttonSelectImage: Button = view.findViewById(R.id.buttonSelectImage)
+        buttonSelectImage.setOnClickListener {
+            // 갤러리에서 이미지를 선택하도록 요청
+            selectImageFromGallery()
+        }
+
+        return view
+    }
+
+    private fun selectImageFromGallery() {
+        // "image/*" MIME 타입을 사용해 갤러리에서 모든 이미지를 볼 수 있도록 함
+        selectImageLauncher.launch("image/*")
+    }
+
+    private fun uriToBitmap(selectedFileUri: Uri): Bitmap {
+        val contentResolver = requireActivity().contentResolver
+        val inputStream: InputStream? = contentResolver.openInputStream(selectedFileUri)
+        return BitmapFactory.decodeStream(inputStream)
+    }
+
+    private fun classifyImage(bitmap: Bitmap) {
+        val results = classifier.classifyImage(bitmap)
+        textViewResult.text = results.joinToString(separator = "\n") { "${it.first}: ${it.second}" }
+    }
+}

@@ -9,8 +9,8 @@ import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 
 class Classifier(private val assetManager: AssetManager) {
-
     private var interpreter: Interpreter? = null
+    private val labels = listOf("matjogea", "nakgi", "geabul") // 클래스 이름
 
     init {
         val model = loadModelFile()
@@ -27,33 +27,27 @@ class Classifier(private val assetManager: AssetManager) {
     }
 
     fun classifyImage(bitmap: Bitmap): List<Pair<String, Float>> {
-        // 이미지 전처리: Bitmap을 ByteBuffer로 변환
         val byteBuffer = convertBitmapToByteBuffer(bitmap)
+        val output = Array(1) { FloatArray(labels.size) } // 클래스 수에 맞게 배열 크기 조정
 
-        // 모델의 출력 형식에 맞게 배열을 초기화
-        // 예를 들어, 모델이 3개의 클래스에 대한 확률을 반환한다고 가정
-        val output = Array(1) { FloatArray(3) }
-
-        // 모델 실행
         interpreter?.run(byteBuffer, output)
 
-        // 출력 결과를 Pair 리스트로 변환
-        return output[0].mapIndexed { index, probability ->
-            "Class $index" to probability
+        // 출력 결과를 클래스 이름과 함께 Pair 리스트로 변환
+        return labels.indices.map { index ->
+            labels[index] to output[0][index]
         }
     }
 
     private fun convertBitmapToByteBuffer(bitmap: Bitmap): ByteBuffer {
-        // ByteBuffer 초기화 및 설정
+        val scaledBitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false)
         val byteBuffer = ByteBuffer.allocateDirect(4 * INPUT_SIZE * INPUT_SIZE * PIXEL_SIZE)
         byteBuffer.order(ByteOrder.nativeOrder())
 
-        // Bitmap을 ByteBuffer로 변환
         val intValues = IntArray(INPUT_SIZE * INPUT_SIZE)
-        bitmap.getPixels(intValues, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
-        for (value in intValues) {
-            byteBuffer.putFloat((value shr 16 and 0xFF) / 255f)
-            byteBuffer.putFloat((value shr 8 and 0xFF) / 255f)
+        scaledBitmap.getPixels(intValues, 0, scaledBitmap.width, 0, 0, scaledBitmap.width, scaledBitmap.height)
+        intValues.forEach { value ->
+            byteBuffer.putFloat(((value shr 16) and 0xFF) / 255f)
+            byteBuffer.putFloat(((value shr 8) and 0xFF) / 255f)
             byteBuffer.putFloat((value and 0xFF) / 255f)
         }
 
@@ -64,6 +58,4 @@ class Classifier(private val assetManager: AssetManager) {
         private const val INPUT_SIZE = 224
         private const val PIXEL_SIZE = 3
     }
-
 }
-
